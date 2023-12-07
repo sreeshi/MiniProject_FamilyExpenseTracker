@@ -1,0 +1,166 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<style>
+ /* Center the dropdown lists */
+        .center-container {
+            text-align: center;
+        }
+
+        /* Style for the dropdown lists */
+        .dropdown-list {
+            display: inline-block;
+        }
+
+        /* Additional styles for the dropdown items */
+        .dropdown-item {
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+            color: #333;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+</style>
+
+        <script>
+        function toggleDropdowns() {
+            var radio = document.querySelector('input[name="dropdownType"]:checked');
+            var dropdown1 = document.getElementById('dropdownList1');
+            var dropdown2 = document.getElementById('dropdownList2');
+
+            if (radio.value === 'Expense') {
+                dropdown1.style.display = 'block';
+                dropdown2.style.display = 'none';
+
+            } else if (radio.value === 'Income') {
+                dropdown1.style.display = 'none';
+                dropdown2.style.display = 'block';
+
+            }
+        }
+    </script>
+
+
+	 {% comment %} <link rel="stylesheet" type="text/css" href=try.css> {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'addmoney.css' %}">
+			<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+ <title>
+	 My Wallet
+			</title>
+        
+    </head>
+	<body>
+<div class="bg-image"></div>
+
+<div class="bg-text">
+	 
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container2">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h1 class="text-center font-weight-light my-4">My Wallet</h1></div>
+                                    <form method="post" action="/addmoney_submission/">
+                                    {% csrf_token %}
+
+																			
+                   <div class="form-check">
+										 What you want to add?<br>
+										<!label class="form-check-label" for="add_money">
+                  <!input class="form-check-input" type="radio" name="add_money" id="add_money" value="Expense" checked required>
+										<!Expense >
+										<!/label>
+                 
+										 <!label class="form-check-label" for="add_money">
+                  <!input class="form-check-input" type="radio" name="add_money" id="add_money" value="Income" checked required>
+                <! Income><!/label>
+
+<div class="center-container">
+                       <label>
+        <input type="radio" name="dropdownType" value="Expense" onclick="toggleDropdowns()" checked> Expense
+    </label>
+    <label>
+        <input type="radio" name="dropdownType" value="Income" onclick="toggleDropdowns()"> Income
+    </label>
+
+													</div>						</div>
+
+
+
+
+
+		<div>
+
+										<div>
+	<div class="f1">
+ <div class="dropdown-list">
+
+       <select id="dropdownList1" name="Category1" style="display: block;">
+
+       <option value="Food">Food</option>
+  <option value="Travel">Travel</option>
+  <option value="Shopping">shopping</option>
+	<option value="Necessities">Necessities</option>
+	<option value="Entertainment">Entertainment</option>
+	<option value="Others">Others</option>
+
+        <!div>
+  <br>
+										<!/div>
+
+        <!-- Add more options as needed -->
+    </select>
+</div>
+        <div class="dropdown-list">
+    <select id="dropdownList2"  name="Category2" style="display: none;">
+      <option value="Business Profits">Business Profits</option>
+  <option value="Rental Income">Rental Income</option>
+  <option value="Investment Income">Investment Income</option>
+	<option value="Capital Gains">Capital Gains</option>
+	<option value="Others">Others</option>
+        <!-- Add more options as needed -->
+    </select>
+            </div>
+
+       <br>
+
+
+
+		<br>
+											</center>
+                                            <label for="quantity">Amount:</label><br>
+  <input type="number" name="quantity" required><br>
+  <br>
+			</div>
+
+										<div>
+  <label>
+    Date:
+    <input type="date" name="Date">
+  </label><br>
+										</div>
+																	</div>
+										<div class="btn">
+  <button type="submit" class="b2" href='/addmoney'> Submit </button>
+										</div>
+	<!--<input type="button" class="b2"  onclick="location.href='/addmoney'" value="submit!">-->
+</form>
+																	
+															</div>
+													</div>
+										
+													
+											</div>
+									</div>
+	
+							</main>
+					</div>
+	</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+<!-- expense_notification_email.html -->
+<html>
+<head>
+    <title>
+        email notification
+    </title>
+</head>
+<body>
+<p>Hello {{ user.username }},</p>
+
+<p>Your recent expense of ${{ expense_amount }} has exceeded your saved money limit of ${{ saved_money }}.</p>
+
+<p>Please review your expenses and adjust your budget accordingly.</p>
+
+<p>Best regards,<br>
+Your Expense Tracker</p>
+</body>
+</html>
